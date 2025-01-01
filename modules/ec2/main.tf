@@ -1,7 +1,7 @@
 resource "aws_security_group" "sg" {
   name        = "${var.component_name}-${var.env}-sg"
   description = "Inbound allow traffic for ${var.component_name}"
-  vpc_id      = aws_vpc.main.id
+
   ingress {
     from_port        = 22
     to_port          = 22
