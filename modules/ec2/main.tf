@@ -8,7 +8,7 @@ resource "aws_security_group" "sg" {
     protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]
   }
-  egress {
+  ingress {
     from_port        = var.app_port
     to_port          = var.app_port
     protocol         = "TCP"
