@@ -42,7 +42,7 @@ app_instances = {
     instance_type = "t2.micro"
     app_port = 8080
   }
-  payment = {
+  cart = {
     instance_type = "t2.micro"
     app_port = 8080
   }
