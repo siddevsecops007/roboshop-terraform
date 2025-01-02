@@ -49,7 +49,7 @@ app_instances = {
 }
 
 web_instances = {
-  fronend = {
+  frontend = {
     instance_type = "t2.micro"
     app_port      = 80
   }
