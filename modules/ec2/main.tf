@@ -62,7 +62,7 @@ resource "null_resource" "ansible_pull" {
 
 resource "aws_route53_record" "record" {
   zone_id = "${var.zoneid}"
-  name    = "${var.component_name}-${var.env}.${var.domain_name}}"
+  name    = "${var.component_name}-${var.env}.${var.domain_name}"
   type    = "A"
   ttl     = 30
   records = [aws_instance.instance.private_ip]
