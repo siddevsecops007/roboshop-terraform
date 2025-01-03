@@ -7,6 +7,7 @@ module "db_instaces" {
     app_port       = each.value["app_port"]
     domain_name    = var.domain_name
     zoneid         = var.zoneid
+    vault_token    = var.vault_token
 }
 
 module "app_instaces" {
@@ -19,6 +20,7 @@ module "app_instaces" {
     app_port       = each.value["app_port"]
     domain_name    = var.domain_name
     zoneid         = var.zoneid
+    vault_token    = var.vault_token
 }
 
 module "web_db_instaces" {
@@ -31,6 +33,7 @@ module "web_db_instaces" {
     app_port       = each.value["app_port"]
     domain_name    = var.domain_name
     zoneid         = var.zoneid
+    vault_token    = var.vault_token
 }
 
 
