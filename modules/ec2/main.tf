@@ -44,18 +44,18 @@ resource "aws_instance" "instance" {
 }
 
 resource "null_resource" "ansible_pull" {
-  connection {
-    type     = "ssh"
-    user     = "ec2-user"
-    password = "DevOps321"
-    host     = aws_instance.instance.private_ip
-  }
-
   provisioner "remote-exec" {
-    inline = [
-      "sudo labauto ansible",
-      "ansible-pull -i localhost, -U https://github.com/SathuSid/roboshop-ansible.git -e env=${var.env} -e component_name=${var.component_name} -e vault_token=${var.vault_token} roboshop.yaml"
-    ]
+    connection {
+      type     = "ssh"
+      user     = "ec2-user"
+      password = "DevOps321"
+      host     = aws_instance.instance.private_ip
+    }
+
+      inline = [
+        "sudo labauto ansible",
+        "ansible-pull -i localhost, -U https://github.com/SathuSid/roboshop-ansible.git -e env=${var.env} -e component=${var.component_name} -e vault_token=${var.vault_token} roboshop.yaml"
+      ]
   }
 
 }
