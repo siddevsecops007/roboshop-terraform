@@ -1,0 +1,10 @@
+name: learn-github-actions
+on: [workflow_dispatch]
+jobs:
+  just-ls-command:
+    runs-on: self-hosted
+    steps:
+      - run: ls -ltrh
+      - run: hostname
+
+#running git hub actions.
