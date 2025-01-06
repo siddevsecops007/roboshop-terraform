@@ -1,10 +1,14 @@
-name: learn-github-actions
+name: terraform infra provision
 on: [workflow_dispatch]
 jobs:
   just-ls-command:
     runs-on: self-hosted
     steps:
-      - run: make dev-apply
+      - uses: actions/checkout@v4
+      - run: | 
+          make dev-apply token="$env:vault_token"
+        env:
+        vault_token: ${{ secrets.vault_token }}
 
 
 #running git hub actions.
