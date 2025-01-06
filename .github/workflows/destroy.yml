@@ -1,4 +1,4 @@
-name: terraform infra provision
+name: Terraform Infra Destroy
 on: [workflow_dispatch]
 jobs:
   terraform:
