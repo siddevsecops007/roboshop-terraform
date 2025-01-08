@@ -8,6 +8,7 @@ module "db_instaces" {
     domain_name    = var.domain_name
     zoneid         = var.zoneid
     vault_token    = var.vault_token
+    volume_size    = each.value["volume_size"]
 }
 
 module "app_instaces" {
@@ -21,6 +22,7 @@ module "app_instaces" {
     domain_name    = var.domain_name
     zoneid         = var.zoneid
     vault_token    = var.vault_token
+    volume_size    = each.value["volume_size"]
 }
 
 module "web_db_instaces" {
@@ -34,6 +36,7 @@ module "web_db_instaces" {
     domain_name    = var.domain_name
     zoneid         = var.zoneid
     vault_token    = var.vault_token
+    volume_size    = each.value["volume_size"]
 }
 
 

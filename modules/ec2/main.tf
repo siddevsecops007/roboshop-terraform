@@ -41,9 +41,19 @@ resource "aws_instance" "instance" {
   tags = {
     Name = "${var.component_name}-${var.env}"
   }
+  root_block_device {
+    volume_size = var.volume_size
+  }
+  lifecycle {
+    ignore_changes = [ami,]
+  }
+
 }
 
 resource "null_resource" "ansible_pull" {
+  triggers = {
+    instance_id = aws_instance.instance.id
+  }
   provisioner "remote-exec" {
     connection {
       type     = "ssh"
