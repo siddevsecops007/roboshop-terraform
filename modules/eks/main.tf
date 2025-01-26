@@ -31,7 +31,7 @@ resource "aws_eks_access_policy_association" "main" {
   }
 }
 
-resource "aws_eks_addon" "vpc-cni" {
+resource "aws_eks_addon" "add-on" {
   for_each            = var.add-ons
   cluster_name        = aws_eks_cluster.main.name
   addon_name          = each.key
