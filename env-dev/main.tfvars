@@ -73,6 +73,15 @@ eks = {
     coredns         = {}
     kube-proxy      = {}
   }
+  access-entries    = {
+   work-station     = {
+     principal_arn            = "arn:aws:iam::216989125516:role/workstation-admin"
+     kubernetes_groups        = []
+     policy_arn               = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+     access_scope_type        = "cluster"
+     access_scope_namespaces  = []
+   }
+  }
   node-groups       = {
     g1              = {
       desired_size  = 1
