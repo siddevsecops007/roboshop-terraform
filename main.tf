@@ -45,7 +45,7 @@ module "eks" {
     subnet_ids          = var.eks["subnet_ids"]
     add-ons             = var.eks["add-ons"]
     node-groups         = var.eks["node-groups"]
-    access_entries      = var.eks["access-entries"]
+    access-entries      = var.eks["access_entries"]
 }
 
 
