@@ -7,22 +7,12 @@ resource "aws_eks_cluster" "main" {
   }
 }
 
-# resource "aws_eks_addon" "vpc-cni" {
-#   cluster_name        = aws_eks_cluster.main.name
-#   addon_name          = "vpc-cni"
-#   addon_version       = v1.19.2-eksbuild.1
-# }
-#
-# resource "aws_eks_addon" "coredns" {
-#   cluster_name        = aws_eks_cluster.main.name
-#   addon_name          = "coredns"
-#   addon_version       = v1.11.4-eksbuild.2
-# }
-#
-# resource "aws_eks_addon" "kube-proxy" {
-#   cluster_name        = aws_eks_cluster.main.name
-#   addon_name          = "kube-proxy"
-#   addon_version       = v1.31.3-eksbuild.2
-# }
+resource "aws_eks_addon" "vpc-cni" {
+  for_each            = var.add-ons
+  cluster_name        = aws_eks_cluster.main.name
+  addon_name          = each.key
+  addon_version       = data.aws_eks_addon_version.add-on-version.version
+}
+
 
 
