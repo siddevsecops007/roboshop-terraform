@@ -9,8 +9,6 @@ EOF
 }
 
 
-
-
 resource "helm_release" "nginx-ingress" {
   depends_on = [null_resource.kube-bootstrap]
   chart = "oci://ghcr.io/nginx/charts/nginx-ingress"
@@ -21,6 +19,25 @@ resource "helm_release" "nginx-ingress" {
   values = [
     file("${path.module}/helm-config/nginx-ingress.yml")
   ]
+}
+
+resource "helm_release" "argocd" {
+  depends_on = [null_resource.kube-bootstrap]
+
+  name             = "argocd"
+  repository       = "https://argoproj.github.io/argo-helm"
+  chart            = "argo-cd"
+  namespace        = "argocd"
+  create_namespace = true
+  wait             = false
+  set {
+    name  = "global.domain"
+    value = "argocd-${var.env}.siddevsecops.icu"
+  }
+  values = [
+    file("${path.module}/helm-config/argocd.yml")
+  ]
+
 }
 
 
