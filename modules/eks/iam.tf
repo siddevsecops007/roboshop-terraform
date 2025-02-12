@@ -57,19 +57,19 @@ resource "aws_iam_role_policy_attachment" "main-AmazonEC2ContainerRegistryReadOn
 
 
 resource "aws_iam_role" "external-dns" {
-  name = "${var.env}-external-dns-pod"
+  name = "${var.env}-eks-external-dns-pod"
 
   assume_role_policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
+    "Version" : "2012-10-17",
+    "Statement" : [
       {
-        "Effect": "Allow",
-        "Principal": {
-          "Service": [
+        "Effect" : "Allow",
+        "Principal" : {
+          "Service" : [
             "pods.eks.amazonaws.com"
           ]
         },
-        "Action": [
+        "Action" : [
           "sts:AssumeRole",
           "sts:TagSession"
         ]
