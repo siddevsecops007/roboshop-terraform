@@ -22,7 +22,7 @@ resource "helm_release" "nginx-ingress" {
   ]
 }
 
-resource "helm_release" "external-DNS" {
+resource "helm_release" "external-dns" {
   depends_on = [null_resource.kube-bootstrap, helm_release.nginx-ingress]
 
   name             = "external-dns"
@@ -35,7 +35,7 @@ resource "helm_release" "external-DNS" {
 }
 
 resource "helm_release" "argocd" {
-  depends_on = [null_resource.kube-bootstrap, helm_release.external-DNS]
+  depends_on = [null_resource.kube-bootstrap, helm_release.external-dns]
 
   name             = "argocd"
   repository       = "https://argoproj.github.io/argo-helm"
