@@ -22,8 +22,20 @@ resource "helm_release" "nginx-ingress" {
   ]
 }
 
+resource "helm_release" "external-DNS" {
+  depends_on = [null_resource.kube-bootstrap, helm_release.nginx-ingress]
+
+  name             = "external-dns"
+  repository       = "https://kubernetes-sigs.github.io/external-dns/"
+  chart            = "external-dns"
+  namespace        = "devops"
+  create_namespace = true
+  wait             = false
+
+}
+
 resource "helm_release" "argocd" {
-  depends_on = [null_resource.kube-bootstrap]
+  depends_on = [null_resource.kube-bootstrap, helm_release.external-DNS]
 
   name             = "argocd"
   repository       = "https://argoproj.github.io/argo-helm"
@@ -40,6 +52,9 @@ resource "helm_release" "argocd" {
   ]
 
 }
+
+
+
 
 
 #
