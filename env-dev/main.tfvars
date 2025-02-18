@@ -96,7 +96,8 @@ eks = {
       desired_size  = 1
       max_size      = 2
       min_size      = 1
-      capacity_type = "SPOT"
+#      capacity_type = "SPOT"
+      capacity_type = "ON_DEMAND"
       instance_types = ["t3.large"]
     }
   }
