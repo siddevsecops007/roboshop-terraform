@@ -1,6 +1,7 @@
 env="dev"
 domain_name="siddevsecops.icu"
-zoneid="Z0839824JM76ZIPWFCGH"
+#zoneid="Z0839824JM76ZIPWFCGH"
+zoneid ="Z0949039285DH1J81BA7"
 
 db_instances = {
   mongodb = {
