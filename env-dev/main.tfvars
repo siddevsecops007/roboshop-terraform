@@ -68,7 +68,7 @@ web_instances = {
 }
 
 eks = {
-  subnet_ids        = ["subnet-027180fd26e9b7be6", "subnet-0b58543d6ea9289da"]
+  subnet_ids        = ["subnet-0e62dd7b4f8823e28", "subnet-058ab8fac9974470a"]
   add-ons           = {
     vpc-cni         = {}
 #    coredns         = {}
@@ -77,7 +77,7 @@ eks = {
   }
   access-entries    = {
    work-station     = {
-     principal_arn            = "arn:aws:iam::216989125516:role/workstation-admin"
+     principal_arn            = "arn:aws:iam::160885263759:role/workstation-admin"
      kubernetes_groups        = []
      policy_arn               = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
      access_scope_type        = "cluster"
@@ -85,7 +85,7 @@ eks = {
    }
     #UI-Access-arn:aws:iam::216989125516:root
     UI-Access     = {
-      principal_arn            = "arn:aws:iam::216989125516:root"
+      principal_arn            = "arn:aws:iam::160885263759:root"
       kubernetes_groups        = []
       policy_arn               = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
       access_scope_type        = "cluster"
