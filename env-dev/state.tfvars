@@ -1,4 +1,5 @@
 #bucket = "terraformpractice007"
-bucket = "sidterraformpractice007"
+#bucket = "sidterraformpractice007"
+bucket = "terraformsiddevsecops001"
 key    = "roboshop/dev1/terraform.tfstate"
 region = "us-east-1"
