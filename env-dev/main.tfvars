@@ -5,6 +5,7 @@ domain_name="siddevsecops.icu"
 #zoneid = "Z0949039285DH1J81BA7"
 zoneid = "Z09554111AOE4XJPNZU5J"
 
+
 db_instances = {
   mongodb = {
     instance_type = "t2.micro"
