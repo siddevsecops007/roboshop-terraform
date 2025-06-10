@@ -1,3 +1,4 @@
+###zoneid
 env="dev"
 domain_name="siddevsecops.icu"
 #zoneid="Z0839824JM76ZIPWFCGH"
