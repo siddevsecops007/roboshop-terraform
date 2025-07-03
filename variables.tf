@@ -6,3 +6,4 @@ variable "domain_name" {}
 variable "zoneid" {}
 variable "vault_token" {}
 variable "eks" {}
+
