@@ -1,6 +1,9 @@
 configs:
   params:
     server.insecure: true
+
+global:
+  domain: argocd-dev.siddevsecops.icu
 ## For nginx ingress
 server:
   ingress:

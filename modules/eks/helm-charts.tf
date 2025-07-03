@@ -43,10 +43,10 @@ resource "helm_release" "argocd" {
   namespace        = "argocd"
   create_namespace = true
   wait             = false
-  set {
-    name  = "global.domain"
-    value = "argocd-${var.env}.siddevsecops.icu"
-  }
+#   set {
+#     name  = "global.domain"
+#     value = "argocd-${var.env}.siddevsecops.icu"
+#   }
   values = [
     file("${path.module}/helm-config/argocd.yml")
   ]
